@@ -8,7 +8,7 @@ using WeatherApplication.Models;
 /*
     @Authors:
         Alex J Zoller
-
+        &logging by Aiden
  */
 
 namespace WeatherApplication
@@ -19,6 +19,7 @@ namespace WeatherApplication
 
         public List<WeatherData> getAllData()
         {
+            Logger.Debug("Entering getAllData@DataDAO");
             List<WeatherData> allData = new List<WeatherData>();
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
@@ -38,6 +39,7 @@ namespace WeatherApplication
 
         public List<string> getAllLocations()
         {
+            Logger.Debug("Entering getAllLocations@DataDAO");
             List<string> locations = new List<string>();
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
@@ -58,6 +60,7 @@ namespace WeatherApplication
 
         public WeatherData getCurrentData()
         {
+            Logger.Debug("Entering getCurrentData@DataDAO");
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
             MySqlCommand command = con.CreateCommand();
@@ -75,6 +78,7 @@ namespace WeatherApplication
 
         public WeatherData getDataByLocation(string location)
         {
+            Logger.Debug("Entering getDataByLocations@DataDAO");
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
             MySqlCommand command = con.CreateCommand();
