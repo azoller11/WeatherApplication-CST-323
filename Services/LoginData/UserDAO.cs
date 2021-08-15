@@ -12,6 +12,7 @@ namespace WeatherApplication.Services.LoginData
         public string connectionString = "datasource=remotemysql.com;username=hHOQMOQDTD;password=f3HJJN4I3c;database=hHOQMOQDTD;port=3306";
         public bool login(string username, string password)
         {
+            Logger.Debug("Entering login@UserDAO username = " + username + ", password = " + password);
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
             MySqlCommand command = con.CreateCommand();
@@ -31,6 +32,7 @@ namespace WeatherApplication.Services.LoginData
 
         public bool registerNewUser(string Email, string username, string password)
         {
+            Logger.Debug("Entering registerNewUser@UserDAO");
             bool success = false;
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();

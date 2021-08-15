@@ -35,18 +35,22 @@ namespace WeatherApplication.Controllers
 
         public IActionResult ProcessLogin(string username, string password)
         {
+            Logger.Debug("Entering ProcessLogin@LoginController");
             string outcome = "LoginSuccess";
             if (!ss.login(username, password))
                 outcome = "Login";
 
+            Logger.Error("Error: with logging in ProcessLogin@LoginController");
             return View(outcome);
         }
 
         public IActionResult ProcessRegister(string email, string username, string password)
         {
+            Logger.Debug("Entering ProcessRegister@LoginController");
             if (!ss.registerNewUser(email, username, password))
                 return View("Register");
 
+            Logger.Error("Error: with registering ProcessRegister@LoginController  email: " + email + ", username: " + username + ", password: " + password);
             return View("Login");
         }
 

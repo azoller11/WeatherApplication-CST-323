@@ -25,12 +25,13 @@ namespace WeatherApplication.Controllers
 
         public IActionResult Index()
         {
+            Logger.Debug("Entering Index@WeatherController ");
             return View("LocationsHome", weatherData.getAllData());
         }
 
         public IActionResult OpenWeather(string location)
         {
-            System.Diagnostics.Debug.WriteLine("test: " + location);
+            Logger.Debug("Entering OpenWeather@WeatherController Location = " + location);
             return View("DisplayWeather", weatherData.getDataByLocation(location));
         }
 
